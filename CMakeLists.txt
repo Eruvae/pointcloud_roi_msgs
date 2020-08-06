@@ -8,7 +8,7 @@ project(pointcloud_roi_msgs)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  std_msgs sensor_msgs geometry_msgs message_generation
+  std_msgs sensor_msgs geometry_msgs dynamic_reconfigure message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -91,6 +91,9 @@ generate_messages(
 #   cfg/DynReconf1.cfg
 #   cfg/DynReconf2.cfg
 # )
+generate_dynamic_reconfigure_options(
+    cfg/FilterDetectedRoi.cfg
+)
 
 ###################################
 ## catkin specific configuration ##
@@ -104,7 +107,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pointcloud_roi_msgs
-   CATKIN_DEPENDS std_msgs sensor_msgs message_runtime
+   CATKIN_DEPENDS std_msgs sensor_msgs dynamic_reconfigure message_runtime
 #  DEPENDS system_lib
 )
 
